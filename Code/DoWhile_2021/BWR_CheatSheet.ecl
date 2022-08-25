@@ -4,7 +4,7 @@
 // Mydef := 'Olá mundo';  // definicao do tipo "value"
 
 // Uma acao
-// OUTPUT('Olá mundo');
+ OUTPUT('Olá mundo');
 // OUTPUT(mydef);
 
 // *****
