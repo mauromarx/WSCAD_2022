@@ -12,5 +12,5 @@ COPY ./environment/*.xml /etc/HPCCSystems
 
 RUN ecl bundle install https://github.com/hpcc-systems/ML_Core.git
 RUN ecl bundle install https://github.com/hpcc-systems/LearningTrees.git
-RUN ecl bundle install https://github.com/hpcc-systems/Visualizer.git
+# RUN ecl bundle install https://github.com/hpcc-systems/Visualizer.git
 RUN ecl bundle install https://github.com/hpcc-systems/DataPatterns.git
