@@ -1,0 +1,4 @@
+//
+mydef := 'Hello World';
+mydef;
+//
