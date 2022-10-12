@@ -1,0 +1,71 @@
+//
+// *****  Estruturas de dados basicas em ECL
+//
+// *****  SHOW 01
+// *****  Estrutura RECORD
+rec := RECORD
+    STRING10  	Firstname;
+    STRING     	Lastname;
+	  STRING1   	Gender;
+	  UNSIGNED1	  Age;
+    STRING      Nationality;
+    STRING      Occupation;
+    STRING      Account;
+	  INTEGER  	  Balance;
+	  DECIMAL7_2 	Income;
+END;
+//
+// *****  Declaracao DATASET
+ds := DATASET([{'Isaac','Newton','M',84,'english','scientist','cc100',100,3500.00},
+               {'Albert','Einstein','M',76,'german','scientist','cc200',-100,4000.30},
+               {'Marie','Curie','F',66,'polish','scientist','cc300',200,3640.10},
+               {'Victor','Hugo','M',83,'french','writer','cc400',150,1900.00},
+               {'Jane','Austen','F',41,'english','writer','cc500',180,2000.00},
+               {'Emily','Bronte','F',30,'english','writer','cc600',120,1800.00},
+               {'Jane','Doe','',25,'brazilian','unemployed','cc700',-500,0.00},
+               {'John','Doe','U',65,'american','retired','cc800',750,3211.11}],rec);
+// OUTPUT(ds);                                                //	SUBMIT 00
+ds;			                                                      //	SUBMIT 01
+//
+//
+//
+// *****  SHOW 02
+// *****  Filtragem e Tabulaçao de datasets
+// recset := ds(Age>65);
+// recset; // O mesmo que: OUTPUT(recset);                    //	SUBMIT 02
+
+// recset := ds(Age>65,Gender='F');
+// recset;                                                    //	SUBMIT 03
+
+//  ***** definição do tipo "boolean"
+// IsSeniorMale := ds.Age>65 AND ds.Gender='M';
+// recset := ds(IsSeniorMale);
+// recset;                                                    //	SUBMIT 04
+
+//  ***** definicao do tipo "set"
+// SetGender := ['M','F'];
+// recset := ds(Gender IN SetGender);
+// recset;						// definição do tipo "recordset"        //	SUBMIT 05a
+// COUNT(recset);    //  Equivale a: OUTPUT(COUNT(recset));   //	SUBMIT 05b
+//
+//
+//
+// *****  SHOW 03
+// *****  Tabulação cruzada - "CrossTab Report" form
+rec01 := RECORD
+  ds.Nationality;
+  cnt01 := COUNT(GROUP);                        //  GROUP - função agregada
+END;
+//
+// crosstab01 := TABLE(ds,rec01,Nationality);   // agrupando pessoas por nacionalidade
+// crosstab01;                                                 //	SUBMIT 06
+
+rec02 := RECORD
+  ds.Occupation;
+  cnt02 := COUNT(GROUP);                        //  GROUP - função agregada
+END;
+//
+// crosstab02 := TABLE(ds,rec02,Occupation);    // agrupando pessoas por ocupação
+// crosstab02;                                                 //	SUBMIT 07a
+//
+//
