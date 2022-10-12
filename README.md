@@ -11,10 +11,13 @@ https://gitpod.io/#https://github.com/mauromarx/WSCAD
 2. Download and install the latest git version available from https://git-scm.com/downloads
 3. Install the required Machine Learning bundles using the ecl command line interface with administrator rights from your clienttools/bin folder (for further details, please visit: https://hpccsystems.com/download/free-modules/machine-learning-library):
 
---- Bundles -------------------------------------------------------
+Bundles:
+-------------------------------------------------------------------
+
 cd “C:\Program Files (x86)\HPCCSystems\8.8.2\clienttools\bin”
 ecl bundle install https://github.com/hpcc-systems/DataPatterns.git
 ecl bundle install https://github.com/hpcc-systems/Visualizer.git
+
 -------------------------------------------------------------------
 
 **Note II**: The properties dataset is already sprayed and available in the training cluster utilized during the workshop and also available in the following link:https://github.com/hpccsystems-solutions-lab/hpcc-systems-BR/Data/propriedades.csv
