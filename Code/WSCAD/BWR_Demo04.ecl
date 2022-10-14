@@ -1,66 +1,60 @@
 //
 // *****  Estruturas de dados basicas em ECL
 //
-IMPORT $;
+// *****  SHOW 01
+// *****  Estrutura RECORD
+rec := RECORD
+  STRING10  	Firstname;
+	STRING     	Lastname;
+	STRING1   	Gender;
+	UNSIGNED1	  Age;
+  STRING      Nationality;
+  STRING      Occupation;
+  STRING      Account;
+	INTEGER  	  Balance;
+	DECIMAL7_2 	Income;
+END;
 //
-Persons := $.modPersons.File;
+// Declaracao DATASET
+ds := DATASET([{'Isaac','Newton','M',84,'english','scientist','cc100',100,3500.00},
+               {'Albert','Einstein','M',76,'german','scientist','cc200',-100,4000.30},
+               {'Marie','Curie','F',66,'polish','scientist','cc300',200,3640.10},
+               {'John','Doe','U',65,'american','retired','cc900',1000,3211.11},   //  adicionado para exemplo: Rollup
+               {'Victor','Hugo','M',83,'french','writer','cc400',150,1900.00},
+               {'Jane','Austen','F',41,'english','writer','cc500',180,2000.00},
+               {'Emily','Bronte','F',30,'english','writer','cc600',120,1800.00},
+               {'Jane','Doe','',25,'brazilian','unemployed','cc700',-500,0.00},
+               {'John','Doe','U',65,'american','retired','cc800',750,3211.11}],rec);
+// OUTPUT(ds);                                                //	SUBMIT 00
+ds;			                                                      //	SUBMIT 01
 //
 //
-// *****  SHOW 10
+//
+// *****  SHOW 04
 // *****  Transformacoes basicas em ECL
-// *****  Eliminacao de campos desnecessarios
-ptable := TABLE(Persons,{ID,Firstname,LastName,Gender,DependentCount,BirthDate,StreetAddress,City,State,ZipCode});
-ptable;                                                            //	SUBMIT 05a
-// OUTPUT(ptable,,'~CLASS::MDM::DEMO::PersonsTBL',OVERWRITE);         //	SUBMIT 05b
+// *****  Eliminacao de campos desnecessarios - "Vertical Slice" form
+mytable := TABLE(ds,{Firstname,Lastname,Account,Balance,Income});
+// mytable;                                                          //	SUBMIT 02
 //
 //
 //
-// *****  SHOW 11
-// *****  Filtragem e Tabulaçao de datasets
-// *****  Tabulação cruzada - "CrossTab Report" form
-rec3 := RECORD
-  Persons.Gender;
-  cnt3 := COUNT(GROUP);
+// *****  SHOW 05
+// *****  Funcao ROLLUP & TRANSFORM
+// *****  Ordenacao de valores do dataset: Full = FirstName & LastName
+//        {'John','Doe','U',65,'american','retired','cc900',1000,3211.11},   //  adicionado para transformacao pelo Rollup
+// sort04 := SORT(ds,FirstName,LastName);
+// sort04;                                                           //	SUBMIT 06a
+//
+rec RollTransf(rec Le, rec Ri) := TRANSFORM
+	SELF.Account  := Le.Account + ',' + Ri.Account;
+	SELF.Balance  := Le.Balance + Ri.Balance;
+	SELF          := Le;
 END;
 //
-// crosstab03 := TABLE(Persons,rec3,Gender);
-// crosstab03;                                                     //	SUBMIT 06
-
-
-rec4 := RECORD
-  Persons.DependentCount;
-  cnt4 := COUNT(GROUP);
-END;
+// rollup01 := ROLLUP(sort04,
+                   // LEFT.FirstName = RIGHT.FirstName AND
+                   // LEFT.LastName  = RIGHT.LastName,
+                   // RollTransf(LEFT,RIGHT));
+// rollup01;                                                         //	SUBMIT 06b
 //
-// crosstab04 := TABLE(Persons,rec4,DependentCount);
-// crosstab04;                                                     //	SUBMIT 07
-
-
-// *****  Funçoes de Agregação: MIN & MAX
-MinVal := MIN(Persons,DependentCount);
-MaxVal := MAX(Persons,DependentCount);
-//
-DCds := DATASET([{'n. Minimum',MinVal},
-                 {'n. Maximum',MaxVal}],
-                 {STRING15 ValueType,INTEGER AllVal});
-// DCds;                                                           //	SUBMIT 08
-//
-//
-//
-// *****  SHOW 12
-// *****  Filtragem com definição do tipo "boolean"
-IsFloridian := Persons.State = 'FL';
-IsBorn2000  := Persons.BirthDate <> '' AND Persons.BirthDate[..4] >= '2000';
-//
-IsFloridianYoung := Persons(IsFloridian AND IsBorn2000);
-//
-//
-// *****  Tabulação cruzada
-FYrec := RECORD
-  IsFloridianYoung.Gender;
-  UNSIGNED4 FYcnt := COUNT(GROUP);
-END;
-//
-// crosstab05 := TABLE(IsFloridianYoung,FYrec,Gender);
-// crosstab05;                                                      //	SUBMIT 09
 //

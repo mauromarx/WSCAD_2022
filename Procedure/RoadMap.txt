@@ -1,21 +1,24 @@
 Procedure - Sequence:
 
 Codes:
-00 - BWR_Tests.ecl
-00 - Demo00.ecl
-01 - Demo01.ecl
-02 - Demo02.ecl
-03 - modPersons.ecl
-04 - Demo03.ecl
-05 - Demo04.ecl
-06 - UID_Persons.ecl
-07 - STD_Persons.ecl
-08 - IDX_Persons.ecl
-09 - BWR_BuildIndexes.ecl
-10 - Fetch_Persons.ecl
-11 - BWR_TestQueries.ecl
+BWR_Tests.ecl
+Demo00.ecl
+Demo01.ecl
+Demo02.ecl
+Demo03.ecl
+Demo04.ecl
+Demo05.ecl
+modPersons.ecl
+Demo06.ecl
+Demo07.ecl
+UID_Persons.ecl
+STD_Persons.ecl
+IDX_Persons.ecl
+BWR_BuildIndexes.ecl
+Fetch_Persons.ecl (compiler hthor and roxie)
+BWR_TestQueries.ecl
 
 ETL - CSV Tests:
-X0 - BWR_Persons_CSV
-X1 - Persons.ecl
-X3 - BWR_DP_Persons.ecl
+BWR_Persons_CSV
+Persons.ecl
+BWR_DP_Persons.ecl

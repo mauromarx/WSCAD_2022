@@ -8,5 +8,5 @@ OUTPUT(mydef);
 mydef;
 //
 // OUTPUT($.modPersons.File);
-COUNT($.modPersons.File)    // 963.512 registros
+// COUNT($.modPersons.File)    // 963.512 registros
 //
