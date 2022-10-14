@@ -8,6 +8,8 @@ Demo02.ecl
 Demo03.ecl
 Demo04.ecl
 Demo05.ecl
+modInline01.ecl
+modInline02.ecl
 modPersons.ecl
 Demo06.ecl
 Demo07.ecl
