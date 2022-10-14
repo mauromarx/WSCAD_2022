@@ -34,7 +34,7 @@ ds;			                                                      //	SUBMIT 01
 // *****  Transformacoes basicas em ECL
 // *****  Eliminacao de campos desnecessarios - "Vertical Slice" form
 mytable := TABLE(ds,{Firstname,Lastname,Account,Balance,Income});
-// mytable;                                                          //	SUBMIT 02
+mytable;                                                          //	SUBMIT 02
 
 // *****  Ordenacao de valores do dataset: Full = FirstName & LastName
 //        {'John','Doe','U',65,'american','retired','cc800',750,3211.11},   //  adicionado para remocao pelo Dedup Full

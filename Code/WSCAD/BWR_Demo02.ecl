@@ -33,7 +33,7 @@ ds;			                                                      //	SUBMIT 01
 // *****  Transformacoes basicas em ECL
 // *****  Eliminacao de campos desnecessarios - "Vertical Slice" form
 mytable := TABLE(ds,{Firstname,Lastname,Account,Balance,Income});
-// mytable;                                                          //	SUBMIT 02a
+mytable;                                                          //	SUBMIT 02a
 // OUTPUT(mytable,,'~CLASS::MDM::DEMO::mytable',OVERWRITE);          //	SUBMIT 02b
 
 // *****  Ordenacao de valores: Lastname (-Lastname = decrescente)

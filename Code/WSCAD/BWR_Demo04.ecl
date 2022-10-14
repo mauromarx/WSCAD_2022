@@ -34,7 +34,7 @@ ds;			                                                      //	SUBMIT 01
 // *****  Transformacoes basicas em ECL
 // *****  Eliminacao de campos desnecessarios - "Vertical Slice" form
 mytable := TABLE(ds,{Firstname,Lastname,Account,Balance,Income});
-// mytable;                                                          //	SUBMIT 02
+mytable;                                                          //	SUBMIT 02
 //
 //
 //

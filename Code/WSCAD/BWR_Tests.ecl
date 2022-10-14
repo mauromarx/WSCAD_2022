@@ -1,5 +1,6 @@
 //
-// Environment Tests:
+// Environment Tests and Actions:
+IMPORT $;
 //
 mydef := 'Hello World';
 //
@@ -11,8 +12,10 @@ mydef;
 // COUNT($.modInline01.File);    // 8 registros
 //
 // OUTPUT($.modInline02.File);
-// COUNT($.modInline02.File);    // 963.512 registros
+// COUNT($.modInline02.File);    // 8 registros
 //
 // OUTPUT($.modPersons.File);
 // COUNT($.modPersons.File)    // 963.512 registros
+//
+// OUTPUT($.UID_Persons);
 //

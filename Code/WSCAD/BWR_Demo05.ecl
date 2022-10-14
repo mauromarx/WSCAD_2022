@@ -33,7 +33,7 @@ ds;			                                                      //	SUBMIT 01
 // *****  Transformacoes basicas em ECL
 // *****  Eliminacao de campos desnecessarios - "Vertical Slice" form
 mytable := TABLE(ds,{Firstname,Lastname,Account,Balance,Income});
-// mytable;                                                          //	SUBMIT 02
+mytable;                                                          //	SUBMIT 02
 //
 //
 //
@@ -112,7 +112,7 @@ END;
 //
 //
 // JOINdsFull := JOIN(TRds,EPds,LEFT.Firstname = RIGHT.Firstname AND LEFT.Lastname = RIGHT.Lastname,MyTransf2(LEFT,RIGHT),
-                   // FULL OUTER);
+                   // FULL OUTER);   // Join de inclusao: todos os registros que atendam a condição e os demais que não atendam
 // JOINdsFull;			                                              //	SUBMIT 11
 //
 // *****  Ordenacao de valores do dataset: RecID
