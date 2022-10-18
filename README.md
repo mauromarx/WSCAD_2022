@@ -1,6 +1,6 @@
 # HPCC Systems Workshop
 
-ECL course material for community workshops. The training cluster utilized during the workshop is: localhost.
+ECL course material for community workshops. The training cluster utilized during the workshop is: TrainingCluster. After completing this course, you should use: localhost.
 
 # During the workshop GitPod will be used as main environment:
 1. By using your GitHub credentials, just click on the following link for instantiate a environment via GitPod:
